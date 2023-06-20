@@ -23,6 +23,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // 本番環境の場合のProtocolが https にする
+        if (app()->isProduction()) {
+            URL::forceScheme('https');
+        }
     }
 }
